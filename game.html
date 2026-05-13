@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For</title>
+    <link rel="stylesheet" href="styles.css">
+<body>
+<style>
+    body {
+        font-family:serif;
+    }
+</style>
+<div class="card">
+    
+    <h1><b>New chapter</b></h1>
+    <p> Hi dear, this is Linh and I wanted to make a special message for you, each day I think about you and I want to make sure you know that as well. I love you, always did and always will. Please continue with the buttons below. Make sure to read the whole site if you want, this is all for you. No rushes. Enjoy it, please.</p>
+
+ <div class="nav-buttons">
+        <a href="home.html">
+            <button class="nav-btn">home</button>
+        </a>
+        <a href="mh.html">
+            <button class="nav-btn">life</button>
+        </a>
+        <a href="message.html">
+            <button class="nav-btn">message</button>
+        </a>
+        <a href="abt.html">
+            <button class="nav-btn">anime</button>
+        </a>
+                <a href="game.html">
+            <button class="nav-btn">game</button>
+            </a>
+            </div>
+
+    <div class="content">
+    </div>
+
+    <p class="footer-text">2026, my apologies for Cajnis</p>
+    <p class="footer-text">Made with love by Linnie</p>
+</div>
+
+<script>
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = '♡';
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.fontSize = (Math.random() * 1.5 + 0.5) + 'em';
+        snowflake.style.animationDuration = (Math.random() * 3 + 5) + 's';
+        snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+        document.body.appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 8000);
+    }
+
+    setInterval(createSnowflake, 200);
+
+    for (let i = 0; i < 20; i++) {
+        setTimeout(createSnowflake, i * 100);
+    }
+    const music = document.getElementById("bg-music");
+
+// start once
+function startMusic() {
+    music.play();
+    document.removeEventListener("click", startMusic);
+}
+
+document.addEventListener("click", startMusic, { once: true });
+
+
+// NAV BUTTONS (DO NOT TOUCH MUSIC)
+document.querySelectorAll(".nav-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        // ❌ DO NOT do: music.load()
+        // ❌ DO NOT do: new Audio()
+        // ❌ DO NOT do: innerHTML replacing audio section
+
+        const page = btn.dataset.page;
+        const content = document.querySelector(".content");
+
+        if (page === "home") {
+            content.innerHTML = "<h2>Home</h2><p>Welcome!</p>";
+        }
+
+        if (page === "about") {
+            content.innerHTML = "<h2>About</h2><p>About page</p>";
+        }
+
+        if (page === "contact") {
+            content.innerHTML = "<h2>Contact</h2><p>Contact page</p>";
+        }
+
+    });
+});
+</script>
+</body>
+<audio autoplay loop>
+  <source src="Insomnia  slowed reverb.mp3" type="audio/mpeg">
+</audio>
+</html>

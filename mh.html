@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For</title>
+    <link rel="stylesheet" href="styles.css">
+<body>
+<style>
+    body {
+        font-family:serif;
+    }
+</style>
+<div class="card">
+    
+    <h1><b>New chapter</b></h1>
+    <p> Hi dear, this is Linh and I wanted to make a special message for you, each day I think about you and I want to make sure you know that as well. I love you, always did and always will. Please continue with the buttons below. Make sure to read the whole site if you want, this is all for you. No rushes. Enjoy it, please.</p>
+
+    <div class="nav-buttons">
+        <a href="home.html">
+            <button class="nav-btn">home</button>
+        </a>
+        <a href="mh.html">
+            <button class="nav-btn">life</button>
+        </a>
+        <a href="message.html">
+            <button class="nav-btn">message</button>
+        </a>
+        <a href="abt.html">
+            <button class="nav-btn">anime</button>
+        </a>
+                <a href="game.html">
+            <button class="nav-btn">game</button>
+            </a>
+    </div>
+
+    <div class="content">
+    </div>
+<p>Life without you is meaningless, you think I would move on, right? No, I won't I fully love you even after what I've done, you make me realise my past mistakes. I love you so much, Davi. You are truly what I desire in my life. I would never repeat my mistakes ever again. Call me pathetic, but I will yearn for you, all the time. I love you so much, my heart beats so fast when I think of you. How can such a wonderful person like you exist? Gosh, you are a perfection, from the Gods. I am so speechless whenever I see you, you truly are something, aren't you. My handsome boy.. only mine.. I hope. Please forgive me and come back, you know where home is. :) Haha jokes aside, it's actually up to you if you forgive me or not.</p>
+<p>Currently I am eating cheese and writing this, you are playing arena and winning with Fiora. Man, you keep calling me a manipulator, idk I wanna beat the shit out of you rn. But it's okay. Bleeeh. I wish we can be together, I love you so much my teddy bear, you're the sweetest boy ever.</p>
+<p>Hi Cajnis, this is Linh again it's 13th of May and I am updating this site for you, I just want to tell you how much I love you and how excited I am to go to work, I wanna earn money and maybe one day I'll be a sugar mommy, who knows haha!</p>
+<div class="line">když jsem tě potkala, hned jsem věděla,</div>
+    <div class="line">že jsi ten, na koho jsem fakt čekala.</div>
+
+    <div class="line">tvůj charm je prostě něco, co mě bere,</div>
+    <div class="line">a já se v tobě ztrácím úplně lehce a rychle.</div>
+
+    <div class="line">miluju tě, i když to neumím říkat hezky,</div>
+    <div class="line">spíš to ze mě padá tak nějak přirozeně, bez řeči.</div>
+
+    <div class="line">jsi Slovensko a já tady, ale co na tom záleží,</div>
+    <div class="line">když mám pocit, že k sobě prostě patříme <span class="heart"></span></div>
+    <p></p>
+    <p>Cajnis, I hope you like my poem, I am not that good, but I tried my best, do you like it? I hope you do haha.. Gosh I miss your voice, your face and everything.</p>
+<p class="footer-text">2026, my apologies for Cajnis</p>
+    <p class="footer-text">Made with love by Linnie</p>
+</div>
+
+<script>
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = '♡';
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.fontSize = (Math.random() * 1.5 + 0.5) + 'em';
+        snowflake.style.animationDuration = (Math.random() * 3 + 5) + 's';
+        snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+        document.body.appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 8000);
+    }
+
+    setInterval(createSnowflake, 200);
+
+    for (let i = 0; i < 20; i++) {
+        setTimeout(createSnowflake, i * 100);
+    }
+    const music = document.getElementById("bg-music");
+
+// start once
+function startMusic() {
+    music.play();
+    document.removeEventListener("click", startMusic);
+}
+
+document.addEventListener("click", startMusic, { once: true });
+
+
+// NAV BUTTONS (DO NOT TOUCH MUSIC)
+document.querySelectorAll(".nav-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        // ❌ DO NOT do: music.load()
+        // ❌ DO NOT do: new Audio()
+        // ❌ DO NOT do: innerHTML replacing audio section
+
+        const page = btn.dataset.page;
+        const content = document.querySelector(".content");
+
+        if (page === "home") {
+            content.innerHTML = "<h2>Home</h2><p>Welcome!</p>";
+        }
+
+        if (page === "about") {
+            content.innerHTML = "<h2>About</h2><p>About page</p>";
+        }
+
+        if (page === "contact") {
+            content.innerHTML = "<h2>Contact</h2><p>Contact page</p>";
+        }
+
+    });
+});
+</script>
+</body>
+<audio autoplay loop>
+  <source src="Insomnia  slowed reverb.mp3" type="audio/mpeg">
+</audio>
+</html>
